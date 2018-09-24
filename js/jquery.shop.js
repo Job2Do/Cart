@@ -219,6 +219,7 @@
 							var prod = newItems[j];
 							var sub = prod.price * prod.qty;
 							updatedTotal += sub;
+							updatedTotal = self._formatNumber(updatedTotal, 2);
 							totalQty += prod.qty;
 						}
 					}
@@ -277,7 +278,7 @@
 					for( var j = 0; j < cartItems.length; ++j ) {
 						var cartItem = cartItems[j];
 						var cartProduct = cartItem.product;
-						var cartPrice = this.currency + " " + cartItem.price;
+						var cartPrice = this.currency + " " + this._formatNumber(cartItem.price, 2);
 						var cartQty = cartItem.qty;
 						var cartHTML = "<tr><td><img src=\"" + cartItem.image + "\">" + "</td><td class='pname'>" + cartProduct + "</td>" + "<td class='pqty'>" + cartQty + "</td>" + "<td class='pprice'>" + cartPrice + "</td></tr>";
 					
@@ -325,7 +326,6 @@
 				var cart = self.storage.getItem( self.cartName );
 				var shippingRates = self.storage.getItem( self.shippingRates );
 				var total = self.storage.getItem( self.total );
-				var image = self.storage.getItem( image );
 				
 				var updatedTotal = 0;
 				var totalQty = 0;
@@ -434,6 +434,8 @@
 		 * @returns n Number the formatted number
 		 */
 		 
+		 
+		
 		_formatNumber: function( num, places ) {
 			var n = num.toFixed( places );
 			return n;

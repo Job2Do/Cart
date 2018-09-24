@@ -9,7 +9,7 @@
 		
 		    // Properties
 		
-			this.cartPrefix = "grottino-"; // Prefix string to be prepended to the cart's name in the session storage
+			this.cartPrefix = "winery-"; // Prefix string to be prepended to the cart's name in the session storage
 			this.cartName = this.cartPrefix + "cart"; // Cart name in the session storage
 			this.shippingRates = this.cartPrefix + "shipping-rates"; // Shipping rates key in the session storage
 			this.total = this.cartPrefix + "total"; // Total key in the session storage
@@ -294,8 +294,8 @@
 					var cartShipping = this.storage.getItem( this.shippingRates );
 					var subTot = this._convertString( cartTotal ) + this._convertString( cartShipping );
 				
-					this.$subTotal[0].innerHTML = this.currency + " " + this._convertNumber( subTot );
-					this.$shipping[0].innerHTML = this.currency + " " + cartShipping;
+				    this.$subTotal[0].innerHTML = this.currency + " " + this._formatNumber(this._convertString(subTot), 2);
+				    this.$shipping[0].innerHTML = this.currency + " " + this._formatNumber(this._convertString(cartShipping), 2);
 				} else {
 					this.$subTotal[0].innerHTML = this.currency + " " + 0.00;
 					this.$shipping[0].innerHTML = this.currency + " " + 0.00;	
@@ -337,11 +337,13 @@
 					var pname = $.trim( $row.find( ".pname" ).text() );
 					var pqty = self._convertString( $row.find( ".pqty > .qty" ).val() );
 					var pprice = self._convertString( self._extractPrice( $row.find( ".pprice" ) ) );
+					var image = $row.find( "img" ).attr('src');
 					
 					var cartObj = {
 						product: pname,
 						price: pprice,
-						qty: pqty
+						qty: pqty,
+						image: image
 					};
 					
 					updatedCart.items.push( cartObj );

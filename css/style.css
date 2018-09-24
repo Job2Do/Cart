@@ -178,6 +178,12 @@ body#checkout-page #site-info {
 	background: #fafafa;
 }
 
+.shopping-cart td, img {
+	text-align: center;
+	width: 100px;
+	height: 100px;
+}
+
 .shopping-cart td.pname {
 	text-align: left;
 }
@@ -203,10 +209,6 @@ body#checkout-page #site-info {
 	margin: 1.5em 0;
 	padding: 0;
 	list-style: none;
-	text-align: center;
-}
-
-.shopping-cart td, img {
 	text-align: center;
 }
 

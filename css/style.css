@@ -360,9 +360,9 @@ body#checkout-page #site-info {
 }
 
 .counter button.sub:hover {
-    background: red;
+        background: red;
 }
 
 .counter button.add:hover {
-    background: green;
+        background: green;
 }

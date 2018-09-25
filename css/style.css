@@ -180,7 +180,9 @@ body#checkout-page #site-info {
 }
 
 .shopping-cart td img {
-	text-align: center;
+	display: block;
+        margin-left: auto;
+        margin-right: auto;
 	width: 100px;
 	height: 100px;
 }
